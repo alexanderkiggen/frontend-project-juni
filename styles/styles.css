@@ -13,8 +13,38 @@
 ////////////////////////*/
 
 /* ------------------------------- 1. Global Styles -------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-purple: #5722CD;
+    --color-blue: #4845E4;
+    --color-pink: #ED4385;
+    --color-black: #0C0C0C; /* Voor standaard tekst */
+    --color-light-purple: #F2F0FF; /* Voor grote zwevende woorden zoals "hello" en "services" */
+    --color-light-gray: #F3F6F9; /* Voor achtergrond van de projecten */
+    --color-gray: #7A7A7A; /* Voor service-tegel tekst */
+}
+
 
 /* ------------------------------- 2. Typography ----------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Poppins:wght@400;500;600;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Merriweather", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
 /* ------------------------------- 3. Layout --------------------------------------- */
 
