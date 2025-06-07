@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Poppins:wght@400;500;600;700;900&family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
+
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Reusables
+        3.2 Other
+    4. Areas
+        4.1 Header
+        4.2 Introduction
+        etc.
+    5. Media Queries
+////////////////////////*/
+
+/* ------------------------------- 1. Global Styles -------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-purple: #5722CD;
+    --color-blue: #4845E4;
+    --color-pink: #ED4385;
+    --color-black: #0C0C0C; /* Voor standaard tekst */
+    --color-light-purple: #F2F0FF; /* Voor grote zwevende woorden zoals "hello" en "services" */
+    --color-light-gray: #F3F6F9; /* Voor achtergrond van de projecten */
+    --color-gray: #7A7A7A; /* Voor service-tegel tekst */
+}
+
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Merriweather", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 2.7rem;
+}
+
+h2 {
+    font-size: 1.7rem;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+/* --------------- 3.1 Reusables ----------------------- */
+.container-center {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    padding: 15px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.btn-styling{
+    background-color: var(--color-pink);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 999px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-styling:hover{
+        transform: translateY(-1px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+.bg-gradient {
+    background: #4845E4;
+    background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-purple) 100%);
+}
+
+/* --------------- 3.2 Other --------------------------- */
+
+/* ------------------------------- 4. Areas ---------------------------------------- */
+
+/* --------------- 4.1 Header ------------------------- */
+
+.container-center__header {
+    color: var(--color-light-gray);
+}
+.container-center__header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85px;
+    height: 85px;
+    background-image: url('assets/squiggle_line_stripe.svg');
+    background-repeat: no-repeat;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 2.5rem;
+    text-decoration: none;
+}
+.navbar a, .navbar a:visited, .navbar a:active {
+    color: var(--color-light-gray);
+    text-decoration: none;
+}
+.navbar a:hover {
+    text-decoration: underline;
+}
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 4rem 8rem 8rem 8rem;
+    gap: 1.25rem;
+}
+.header-content p {
+    color: var(--color-light-gray);
+    font-size: 1.2rem;
+}
+/* --------------- 4.2 Introduction ------------------- */
+
+.container-introduction {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: center;
+    margin: 6rem 12rem 6rem 12rem;
+}
+.container-introduction h2 {
+    color: var(--color-purple);
+}
+.container-introduction p {
+    margin-top: 2.5rem;
+}
+
+/* ------------------------------- 5. Media Queries -------------------------------- */
