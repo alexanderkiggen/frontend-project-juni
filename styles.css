@@ -47,11 +47,19 @@ h1 {
 h2 {
     font-size: 1.7rem;
 }
+h3 {
+    font-size: 1.5rem;
+}
 
 body {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+img {
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* ------------------------------- 3. Layout --------------------------------------- */
@@ -153,5 +161,78 @@ body {
 .container-introduction p {
     margin-top: 2.5rem;
 }
+/* ------------------------------- 5. Projecten -------------------------------- */
 
-/* ------------------------------- 5. Media Queries -------------------------------- */
+.container-projects {
+    background-color: var(--color-light-gray);
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 8rem 0;
+}
+.project-article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.project-article:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.project-article-content {
+    margin: 2rem;
+}
+.squiggle_line {
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+}
+.squiggle_line::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/squiggle_line.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.project-article a,
+.project-article a:visited,
+.project-article a:hover,
+.project-article a:active {
+    position: relative;
+    display: inline-block;
+    margin-top: 2rem;
+    padding-right: 30px;
+    color: var(--color-purple);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+}
+.project-article a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 1px;
+    background-color: var(--color-purple);
+}
+
+
+.image-wrapper {
+    min-width: 55%;
+    flex-basis: 800px;
+    flex-grow: 0;
+    flex-shrink: 1;
+
+}
+/* ------------------------------- 6. Services -------------------------------- */
+
+
+/* ------------------------------- 6. Media Queries -------------------------------- */
