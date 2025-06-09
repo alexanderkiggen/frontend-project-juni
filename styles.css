@@ -15,6 +15,7 @@
 ////////////////////////*/
 
 /* ------------------------------- 1. Global Styles -------------------------------- */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,6 +23,18 @@
 }
 
 :root {
+    --fs-mobile-h1: 2rem;
+    --fs-mobile-h2: 1.5rem;
+    --fs-mobile-h3: 1.3rem;
+
+    --fs-tablet-h1: 2.4rem;
+    --fs-tablet-h2: 1.6rem;
+    --fs-tablet-h3: 1.5rem;
+
+    --fs-desktop-h1: 2.7rem;
+    --fs-desktop-h2: 1.7rem;
+    --fs-desktop-h3: 1.5rem;
+
     --color-purple: #5722CD;
     --color-blue: #4845E4;
     --color-pink: #ED4385;
@@ -31,7 +44,6 @@
     --color-gray: #7A7A7A; /* Voor service-tegel tekst */
 }
 
-
 /* ------------------------------- 2. Typography ----------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
@@ -39,32 +51,31 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     font-style: normal;
 }
-
-h1 {
-    font-size: 2.7rem;
-}
-
-h2 {
-    font-size: 1.7rem;
-}
-h3 {
-    font-size: 1.5rem;
-}
-
+h1 {font-size: var(--fs-mobile-h1)}
+h2 {font-size: var(--fs-mobile-h2)}
+h3 {font-size: var(--fs-mobile-h3)}
 body {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
-
-img {
-    width: 100%;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+input,
+textarea,
+select,
+button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
-
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
 /* ------------------------------- 3. Layout --------------------------------------- */
 
 /* --------------- 3.1 Reusables ----------------------- */
+
 .container-center {
     display: flex;
     flex-direction: column;
@@ -73,7 +84,6 @@ img {
     margin: 0 auto;
     position: relative;
 }
-
 .btn-styling{
     background-color: var(--color-pink);
     color: white;
@@ -89,7 +99,6 @@ img {
         transform: translateY(-1px);
         box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
 }
-
 .bg-gradient {
     background: #4845E4;
     background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-purple) 100%);
@@ -118,7 +127,7 @@ img {
 .navbar {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
 }
 .navbar ul {
     display: flex;
@@ -139,13 +148,14 @@ img {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 4rem 8rem 8rem 8rem;
+    margin: 4rem 0 12rem 0;
     gap: 1.25rem;
 }
 .header-content p {
     color: var(--color-light-gray);
     font-size: 1.2rem;
 }
+
 /* --------------- 4.2 Introduction ------------------- */
 
 .container-introduction {
@@ -153,7 +163,7 @@ img {
     flex-direction: column;
     gap: 1.25rem;
     text-align: center;
-    margin: 6rem 12rem 6rem 12rem;
+    margin: 6rem 0;
 }
 .container-introduction h2 {
     color: var(--color-purple);
@@ -161,26 +171,25 @@ img {
 .container-introduction p {
     margin-top: 2.5rem;
 }
+
 /* ------------------------------- 5. Projecten -------------------------------- */
 
 .container-projects {
     background-color: var(--color-light-gray);
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    padding: 8rem 0;
+    padding: 6rem 0;
 }
 .project-article {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     align-items: center;
 }
 .project-article:nth-child(even) {
-    flex-direction: row-reverse;
+    flex-direction: column-reverse;
 }
-
 .project-article-content {
-    margin: 2rem;
+    margin: 2rem 0;
 }
 .squiggle_line {
     display: block;
@@ -224,15 +233,144 @@ img {
     background-color: var(--color-purple);
 }
 
-
-.image-wrapper {
-    min-width: 55%;
-    flex-basis: 800px;
-    flex-grow: 0;
-    flex-shrink: 1;
-
+.image-wrapper img {
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
 /* ------------------------------- 6. Services -------------------------------- */
 
+.services-article-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 7rem 0;
+}
+.services-article {
+    flex-basis: 340px;
+    flex-shrink: 1;
+    flex-grow: 1;
+    border: 1px solid var(--color-purple);
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.services-article img {
+    width: 80px;
+    height: 60px;
+}
+.services-article h3 {
+    color: var(--color-purple);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* ------------------------------- 6. Form -------------------------------- */
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6rem 15px;
+    max-width: 800px;
+    gap: 1.25rem;
+    color: var(--color-light-gray);
+}
+.container-form h3, .container-form p {
+    text-align: center;
+}
+.content-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-light-gray);
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    color: var(--color-black);
+}
+.form-group textarea {
+    height: 150px;
+}
+.content-form input[type="submit"] {
+    align-self: center;
+    width: 140px;
+}
+
+
+/* ------------------------------- 6. Footer -------------------------------- */
+.container-footer {
+    background-color: var(--color-black);
+    color: var(--color-light-gray);
+    text-align: center;
+    padding: 5px;
+}
 
 /* ------------------------------- 6. Media Queries -------------------------------- */
+
+@media screen and (min-width: 640px) {
+    /* -- Typography -- */
+    h1 {font-size: var(--fs-tablet-h1)}
+    h2 {font-size: var(--fs-tablet-h2)}
+    h3 {font-size: var(--fs-tablet-h3)}
+
+    /* -- Header -- */
+    .navbar {
+        justify-content: flex-end;
+    }
+    .header-content {
+        margin: 4rem 4rem 10rem 4rem;
+    }
+    /* -- Introduction -- */
+    .container-introduction {
+        margin: 6rem 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    /* -- Typography -- */
+    h1 {font-size: var(--fs-desktop-h1)}
+    h2 {font-size: var(--fs-desktop-h2)}
+    h3 {font-size: var(--fs-desktop-h3)}
+
+    /* -- Header -- */
+    .header-content {
+        margin: 4rem 8rem 10rem 8rem;
+    }
+
+    /* -- Introduction -- */
+    .container-introduction {
+        margin: 6rem 12rem;
+    }
+
+    /* -- Projecten -- */
+    .container-projects {
+        gap: 4rem;
+    }
+    .project-article {
+        flex-direction: row;
+    }
+    .project-article:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    .image-wrapper {
+        min-width: 55%;
+        flex-basis: 800px;
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+    .project-article-content {
+        margin: 2rem;
+    }
+}
