@@ -1,19 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Poppins:wght@400;500;600;700;900&family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
 
-/*////////////////////////
-    Table of Contents
-    1. Global Styles
-    2. Typography
-    3. Layout
-        3.1 Reusables
-        3.2 Other
-    4. Areas
-        4.1 Header
-        4.2 Introduction
-        etc.
-    5. Media Queries
-////////////////////////*/
-
 /* ------------------------------- 1. Global Styles -------------------------------- */
 
 * {
@@ -211,20 +197,22 @@ textarea:focus {
     background-color: var(--color-light-gray);
     display: flex;
     flex-direction: column;
-    padding: 6rem 0;
+    padding: 12rem 0 8rem 0;
     position: relative;
 }
-/*.container-projects::before {*/
-/*    content: "";*/
-/*    position: absolute;*/
-/*    top: -50px;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    height: calc(100% + 100px);*/
-/*    background: var(--color-light-gray);*/
-/*    transform: skewY(1.5deg);*/
-/*    z-index: -1;*/
-/*}*/
+.container-projects::after {
+    content: "work";
+    font-weight: bold;
+    position: absolute;
+    top: 11rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(8rem, 30vw, 25rem);
+    color: white;
+    opacity: 0.9;
+    z-index: -1;
+    white-space: nowrap;
+}
 .project-article {
     display: flex;
     flex-direction: column-reverse;
@@ -297,7 +285,21 @@ textarea:focus {
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
-    margin: 7rem 0;
+    margin: 8rem 0 7rem 0;
+    position: relative;
+}
+.services-article-wrapper::after {
+    content: "services";
+    font-weight: bold;
+    position: absolute;
+    top: -1.5rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(4rem, 20vw, 15rem);
+    color: var(--color-light-purple);
+    opacity: 0.5;
+    z-index: -1;
+    white-space: nowrap;
 }
 .services-article {
     flex-basis: 340px;
@@ -359,15 +361,6 @@ textarea:focus {
     align-self: center;
     width: 140px;
 }
-/*.test {*/
-/*    clip-path: polygon(*/
-/*            0 0,         !* top-left corner *!*/
-/*            100% 8%,    !* slightly below the top-right corner to create the angled slope *!*/
-/*            100% 100%,   !* bottom-right corner *!*/
-/*            0 100%       !* bottom-left corner *!*/
-/*    );*/
-/*}*/
-
 /* ------------------------------- 6. Footer -------------------------------- */
 .container-footer {
     background-color: var(--color-black);
@@ -393,7 +386,14 @@ textarea:focus {
     }
     /* -- Introduction -- */
     .container-introduction {
-        margin: 6rem 2rem;
+        margin: 8rem 2rem;
+    }
+    /* -- Services -- */
+    .services-article-wrapper {
+        margin: 12rem 0 7rem 0;
+    }
+    .services-article-wrapper::after {
+        top: -3rem;
     }
 }
 
@@ -410,10 +410,16 @@ textarea:focus {
 
     /* -- Introduction -- */
     .container-introduction {
-        margin: 6rem 12rem;
+        margin: 8rem 12rem;
     }
     .container-introduction::after {
         top: 7rem;
+    }
+    .container-projects {
+        padding: 16rem 0 8rem 0;
+    }
+    .container-projects::after {
+        top: 16rem;
     }
 
     /* -- Projecten -- */
@@ -434,5 +440,14 @@ textarea:focus {
     }
     .project-article-content {
         margin: 2rem;
+    }
+
+    /* -- Services -- */
+    .services-article-wrapper {
+        margin: 16rem 0 7rem 0;
+    }
+    .services-article-wrapper::after {
+        top: -3rem;
+        font-size: clamp(8rem, 30vw, 15rem);
     }
 }
