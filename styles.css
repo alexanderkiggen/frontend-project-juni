@@ -100,8 +100,28 @@ textarea:focus {
         box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
 }
 .bg-gradient {
-    background: #4845E4;
+    position: relative;
     background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-purple) 100%);
+    overflow: hidden;
+}
+
+.bg-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url(assets/noise-texture.png) repeat;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+.angle-shape-top {
+    clip-path: polygon(0 0, 100% 30px, 100% 100%, 0 100%);
+}
+.angle-shape-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 30px));
+}
+.angle-shape-both {
+    clip-path: polygon(0 0, 100% 30px, 100% 100%, 0 calc(100% - 30px));
 }
 
 /* --------------- 3.2 Other --------------------------- */
@@ -109,7 +129,6 @@ textarea:focus {
 /* ------------------------------- 4. Areas ---------------------------------------- */
 
 /* --------------- 4.1 Header ------------------------- */
-
 .container-center__header {
     color: var(--color-light-gray);
 }
@@ -164,6 +183,20 @@ textarea:focus {
     gap: 1.25rem;
     text-align: center;
     margin: 6rem 0;
+    position: relative;
+}
+.container-introduction::after {
+    content: "hello";
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(8rem, 30vw, 25rem);
+    color: var(--color-light-purple);
+    opacity: 0.5;
+    z-index: -1;
+    white-space: nowrap;
 }
 .container-introduction h2 {
     color: var(--color-purple);
@@ -179,7 +212,19 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     padding: 6rem 0;
+    position: relative;
 }
+/*.container-projects::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: -50px;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    height: calc(100% + 100px);*/
+/*    background: var(--color-light-gray);*/
+/*    transform: skewY(1.5deg);*/
+/*    z-index: -1;*/
+/*}*/
 .project-article {
     display: flex;
     flex-direction: column-reverse;
@@ -231,6 +276,12 @@ textarea:focus {
     width: 20px;
     height: 1px;
     background-color: var(--color-purple);
+    transition: width 0.3s ease, right 0.3s ease;
+}
+
+.project-article a:hover::after {
+    width: 40px;
+    right: -20px;
 }
 
 .image-wrapper img {
@@ -255,6 +306,7 @@ textarea:focus {
     border: 1px solid var(--color-purple);
     padding: 30px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 .services-article img {
     width: 80px;
@@ -307,7 +359,14 @@ textarea:focus {
     align-self: center;
     width: 140px;
 }
-
+/*.test {*/
+/*    clip-path: polygon(*/
+/*            0 0,         !* top-left corner *!*/
+/*            100% 8%,    !* slightly below the top-right corner to create the angled slope *!*/
+/*            100% 100%,   !* bottom-right corner *!*/
+/*            0 100%       !* bottom-left corner *!*/
+/*    );*/
+/*}*/
 
 /* ------------------------------- 6. Footer -------------------------------- */
 .container-footer {
@@ -352,6 +411,9 @@ textarea:focus {
     /* -- Introduction -- */
     .container-introduction {
         margin: 6rem 12rem;
+    }
+    .container-introduction::after {
+        top: 7rem;
     }
 
     /* -- Projecten -- */
